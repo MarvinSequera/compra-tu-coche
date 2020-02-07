@@ -9,9 +9,13 @@
     <b-collapse id="nav-collapse" is-nav>
 
       <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item as router-link to="/coches">Ingresar</b-nav-item>
-        <b-nav-item as router-link to="/coches">Darse de Alta</b-nav-item>
+      <b-navbar-nav class="ml-auto" v-if='isLoggedIn'>
+        <b-nav-item as router-link to="/profile">Perfil</b-nav-item>
+        <b-nav-item as router-link to="/logout">Salir</b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav class="ml-auto" v-else>
+        <b-nav-item as router-link to="/login">Ingresar</b-nav-item>
+        <b-nav-item as router-link to="/signup">Darse de Alta</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -19,6 +23,11 @@
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: {
+    isLoggedIn () {
+      return this.$store.state.isLoggedIn
+    }
+  }
 }
 </script>

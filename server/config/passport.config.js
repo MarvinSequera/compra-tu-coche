@@ -12,5 +12,5 @@ module.exports = app => {
         store: new MongoStore({ mongooseConnection: mongoose.connection })
     }))
     app.use(flash())
-    require('./passport')(app)
+    require('../passport')(app)
 }
