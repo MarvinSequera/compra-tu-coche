@@ -3,7 +3,7 @@
     <b-container>
       <b-row align-h="center">
         <b-col sm="6">
-          <b-form class="form" @reset='onReset' @submit='onSubmit'>
+          <b-form class="form" @reset='onReset' @submit.prevent='onSubmit'>
              <b-form-group
              id="username-group"
              label="Nombre de Usuario"
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+// import authService from '../Service/authService.js'
 export default {
   data () {
     return {
@@ -48,15 +49,17 @@ export default {
       }
     }
   },
+
   methods: {
     onReset (evt) {
-      evt.preventDefault()
       this.form.username = ''
       this.form.password = ''
     },
     onSubmit (evt) {
-      evt.preventDefault()
-      console.log('Funciona')
+      this.axios.post('/auth/login', { username: this.form.username, password: this.form.password })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+      this.$router.push('/')
     }
   }
 }
