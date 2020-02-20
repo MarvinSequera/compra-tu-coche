@@ -56,9 +56,9 @@ export default {
       this.form.password = ''
     },
     onSubmit (evt) {
-      this.axios.post('/auth/login', { username: this.form.username, password: this.form.password })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+      let username = this.form.username
+      let password = this.form.password
+      this.$store.dispatch('login', { username, password })
       this.$router.push('/')
     }
   }

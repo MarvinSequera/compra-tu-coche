@@ -10,22 +10,18 @@ const bcryptSalt = 10;
 authRouter.post("/login", (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
     if (err) {
-      console.log("A")
       res.status(500).json({ message: 'Something went wrong authenticating user' })
       return
     }
     if (!theUser) {
-      console.log("B")
       res.status(401).json(failureDetails)
       return
     }
     req.login(theUser, (err) => {
       if (err) {
-        console.log("C")
         res.status(500).json({ message: 'Session save went bad.' })
         return
       }
-      console.log("D")
       res.status(200).json(theUser)
       console.log(theUser)
     })
