@@ -13,6 +13,7 @@
               <b-form-input
               input="email"
               type="email"
+              v-model="form.email"
               required
               placeholder="email@email.com"
               ></b-form-input>
@@ -24,6 +25,7 @@
             >
               <b-form-input
               input="phone"
+              v-model="form.phone"
               type="number"
               ></b-form-input>
             </b-form-group>
@@ -41,7 +43,7 @@
           <b-card-text>
 
           </b-card-text>
-          <b-button>Publica</b-button>
+          <b-button as router-link to="/addCar">Publica</b-button>
         </b-card>
       </b-col>
       <b-col sm='4'>
@@ -56,7 +58,7 @@
           <b-card-text>
 
           </b-card-text>
-          <b-button>Favoritos</b-button>
+          <b-button as router-link to="/favorites">Favoritos</b-button>
         </b-card>
       </b-col>
       </b-row>
@@ -69,7 +71,10 @@ export default {
   name: 'Profile',
   data: () => {
     return {
-      userInfo: {}
+      form: {
+        email: '',
+        phone: ''
+      }
     }
   },
   computed: {

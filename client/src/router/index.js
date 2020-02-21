@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Profile from '../views/Profile.vue'
+import Profile from '../views/user/Profile.vue'
 import Carslist from '../views/CarsList.vue'
 import CarDetail from '../views/CarDetail.vue'
-import Login from '../views/Login.vue'
-import Signup from '../views/Signup.vue'
+import Login from '../views/auth/Login.vue'
+import Signup from '../views/auth/Signup.vue'
+import AddCar from '../views/user/AddCar.vue'
+import Favorites from '../views/user/Favorites.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +41,16 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/addCar',
+    name: 'addCar',
+    component: AddCar
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: Favorites
   }
 
 ]
