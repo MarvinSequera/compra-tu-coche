@@ -10,7 +10,7 @@ const carSchema = new Schema({
     color: String,
     price: Number,
     photos: Array,
-    beFavorite: Number,
+    beFavorite: Array,
     address: String,
     user: { type: Schema.Types.ObjectId, ref: 'User' }
 })
