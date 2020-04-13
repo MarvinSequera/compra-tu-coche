@@ -18,7 +18,9 @@ export default {
 <style scope>
 .hero {
   background-image: url(../../public/images/Greatest-driving-roads-Stelvio-Pass.jpg);
-  height: 750px;
+  background-size: contain;
+  height: 100vh;
+  width: 100vw;
   background-repeat: no-repeat;
 }
 .hero h1 {
