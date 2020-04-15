@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import login from './modules/login'
+import maker from './modules/maker'
 // Axios
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = 'http://localhost:3000/api'
@@ -16,7 +17,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    login
+    login, maker
   },
   getters: {
   }
