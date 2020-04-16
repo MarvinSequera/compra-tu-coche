@@ -24,7 +24,6 @@ export default {
         .then(res => {
           context.commit('setUserLoggedIn')
           context.commit('setUserId', res.data)
-          console.log(res.data)
         })
         .catch(err => console.log(err))
     },

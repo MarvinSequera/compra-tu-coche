@@ -9,10 +9,8 @@
 <script>
 export default {
   name: 'home',
-  computed: {
-    store () {
-      return this.$store.dispatch('makers')
-    }
+  created () {
+    return this.$store.dispatch('makers')
   }
 }
 </script>
